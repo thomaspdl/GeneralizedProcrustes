@@ -1,6 +1,6 @@
 # GeneralizedProcrustes
 
-Contains python scripts for the "Generalized orthogonal procrustes" paper.
+Contains python scripts for the "The generalized orthogonal Procrustes problem in the high noise regime" paper.
 
 -VarianceSigma.py: generates emprirical mean and variance of the estimator $\hat{\sigma}_{N}$
 
@@ -8,4 +8,4 @@ Contains python scripts for the "Generalized orthogonal procrustes" paper.
 
 -AverageDonohoPlots.py: generates a number of instances and average them to get the graph in Figure 1
 
--FinalGeeration.py: display Donoho plots and compute the slopes of the lines
+-FinalGeneration.py: display Donoho plots and compute the slopes of the lines
