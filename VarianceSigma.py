@@ -18,13 +18,14 @@ k = 250 #number of points
 X = np.zeros((d,k))
 for l in range(1,k):
     v = np.random.randn(d)
-    v = v/LA.norm(v)
+    #v = v/LA.norm(v)
     X[:,l] = v
 
 X = X/LA.norm(X,'fro')
 
 sigma = 1
-Ns = [1000,2000,3000,4000,5000,6000,7000,8000,9000,10000]
+Ns = [2**u for u in range(1,15)]
+
 
 Sigma2Mean = []
 Sigma2Var = []
@@ -35,8 +36,8 @@ for N in Ns:
     print N
     print '*******************************'
     Sigma2Est = []
-    for nreal in range(1000):
-        if nreal % 100 == 0:
+    for nreal in range(250):
+        if nreal % 50 == 0:
             print nreal
 
         M = np.zeros((k,k))
@@ -91,10 +92,10 @@ np.savetxt('Sigma2VarPred.txt', Sigma2VarPred)
 
 plt.figure(figsize=(5,5))
 plt.subplot(121)
-plt.plot(Ns,Sigma2Mean,'r')
+plt.loglog(Ns,Sigma2Mean,'r')
 plt.subplot(122)
-plt.plot(Ns,Sigma2Var,'r')
-plt.plot(Ns,Sigma2VarPred,'b')
+plt.loglog(Ns,Sigma2Var,'r')
+plt.loglog(Ns,Sigma2VarPred,'b')
 #divider = make_axes_locatable(ax)
 #cax = divider.append_axes("right", size="5%", pad=0.05)
 #plt.colorbar(cax=cax)
