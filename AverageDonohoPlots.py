@@ -24,7 +24,7 @@ k = 100 #number of points
 X = np.zeros((p,k))
 for l in range(1,k):
     v = np.random.randn(p)
-    v = v/LA.norm(v)
+    #v = v/LA.norm(v)
     X[:,l] = v
 
 X = X/LA.norm(X,'fro')
@@ -61,12 +61,12 @@ Sylabels = linsigma[::8]
 #####################################
 # launch "Nreal" realizations
 #####################################
-Nreal = 30
+Nreal = 50
 MatErr = np.matrix([[0] * len(N) for i in range(len(sigma))])
 
 for i in range(Nreal):
 
-    print 'realization i: '
+    print 'realization: ' + str(i)
     MatErrT, MatGramErrT = generate(X, k, p, sigma, N)
     MatErrT = np.asarray(MatErrT)
 
